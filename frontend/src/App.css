@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  min-height: 100vh;
+  background: #0a0a0a;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(57, 255, 20, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(57, 255, 20, 0.02) 0%, transparent 50%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  min-height: calc(100vh - 70px);
+  padding-bottom: 2rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(57, 255, 20, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 255, 20, 0.5);
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(57, 255, 20, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(57, 255, 20, 0.3);
+  color: #ffffff;
+}

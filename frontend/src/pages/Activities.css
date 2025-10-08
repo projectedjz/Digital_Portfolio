@@ -1,0 +1,364 @@
+.activities-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  min-height: 80vh;
+}
+
+.activities-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(57, 255, 20, 0.2);
+}
+
+.activities-icon {
+  color: #39ff14;
+  width: 48px;
+  height: 48px;
+}
+
+.activities-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.activities-subtitle {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Hobbies Page Styles */
+.hobbies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hobby-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.hobby-card:nth-child(even) {
+  grid-template-columns: 1fr 1fr;
+}
+
+.hobby-card:nth-child(even) .hobby-video {
+  order: 2;
+}
+
+.hobby-card:nth-child(even) .hobby-content {
+  order: 1;
+}
+
+.hobby-card:hover {
+  transform: translateY(-4px);
+  border-color: #39ff14;
+  box-shadow: 0 12px 40px rgba(57, 255, 20, 0.2);
+}
+
+.hobby-video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(57, 255, 20, 0.1);
+}
+
+.hobby-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hobby-video:hover .video-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  width: 64px;
+  height: 64px;
+  color: #39ff14;
+  filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
+}
+
+.hobby-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hobby-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.hobby-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.hobby-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.hobby-tag {
+  background: rgba(57, 255, 20, 0.1);
+  color: #39ff14;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+/* CCA Page Styles */
+.cca-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.cca-card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.cca-card:hover {
+  transform: translateY(-4px);
+  border-color: #39ff14;
+  box-shadow: 0 12px 40px rgba(57, 255, 20, 0.2);
+}
+
+.cca-header-section {
+  margin-bottom: 1.5rem;
+}
+
+.cca-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.cca-meta {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cca-role,
+.cca-period {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #39ff14;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cca-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #b0b0b0;
+  margin: 0 0 1.5rem 0;
+}
+
+.cca-achievements {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(57, 255, 20, 0.05);
+  border-left: 3px solid #39ff14;
+  border-radius: 8px;
+}
+
+.achievements-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements-list li {
+  color: #b0b0b0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.achievements-list li::before {
+  content: '▹';
+  color: #39ff14;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.cca-gallery {
+  margin-top: 2rem;
+}
+
+.gallery-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(57, 255, 20, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  border-color: #39ff14;
+  box-shadow: 0 8px 30px rgba(57, 255, 20, 0.3);
+}
+
+.gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #39ff14;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 968px) {
+  .hobby-card,
+  .hobby-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-card:nth-child(even) .hobby-video {
+    order: 1;
+  }
+
+  .hobby-card:nth-child(even) .hobby-content {
+    order: 2;
+  }
+
+  .activities-title {
+    font-size: 2rem;
+  }
+
+  .cca-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .activities-page {
+    padding: 2rem 1rem;
+  }
+
+  .activities-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hobby-card,
+  .cca-card {
+    padding: 1.5rem;
+  }
+
+  .cca-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
