@@ -6,6 +6,7 @@ import FloatingParticles from "./components/FloatingParticles";
 import TerminalCursor from "./components/TerminalCursor";
 import LoadingScreen from "./components/LoadingScreen";
 import Home from "./pages/Home";
+import Education from "./pages/Education";
 import ProjectsYear1 from "./pages/ProjectsYear1";
 import ProjectsYear2 from "./pages/ProjectsYear2";
 import Hobbies from "./pages/Hobbies";
@@ -39,6 +40,7 @@ const AppContent = () => {
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/education" element={<Education />} />
           <Route path="/projects/year1" element={<ProjectsYear1 />} />
           <Route path="/projects/year2" element={<ProjectsYear2 />} />
           <Route path="/activities/hobbies" element={<Hobbies />} />

@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <span className="logo-bracket">&lt;</span>
-          <span className="logo-text">Portfolio</span>
+          <span className="logo-text">Digital Portfolio</span>
           <span className="logo-bracket">/&gt;</span>
         </Link>
 

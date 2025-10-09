@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { User, GraduationCap, Briefcase, Code } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleEducationClick = () => {
+    navigate('/education');
+  };
+
   const skillsData = {
     softwareTools: [
       'Tableau',
@@ -22,7 +29,7 @@ const Home = () => {
       'Python',
       'C#',
       'SQL',
-      'Node.js',
+      'Express.js',
       'React.js'
     ],
     genericSkills: [
@@ -45,7 +52,7 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-tag">&lt;developer/&gt;</div>
           <h1 className="hero-title">
-            Hello, I'm <span className="highlight">Your Name</span>
+            Hello, I'm <span className="highlight">Ong Jun Zhen</span>
           </h1>
           <p className="hero-subtitle">
             Full Stack Developer | NYP Student | Tech Enthusiast
@@ -66,11 +73,11 @@ const Home = () => {
               <code>
                 <span className="code-keyword">const</span> developer = {'{'}
                 <br />
-                &nbsp;&nbsp;name: <span className="code-string">'Your Name'</span>,
+                &nbsp;&nbsp;name: <span className="code-string">'Ong Jun Zhen'</span>,
                 <br />
                 &nbsp;&nbsp;role: <span className="code-string">'Full Stack Dev'</span>,
                 <br />
-                &nbsp;&nbsp;passion: <span className="code-string">'Building Amazing Things'</span>
+                &nbsp;&nbsp;passion: <span className="code-string">'Coding and Sports'</span>
                 <br />
                 {'}'};
               </code>
@@ -118,7 +125,7 @@ const Home = () => {
           <h2 className="section-title">Education</h2>
         </div>
         <div className="education-cards">
-          <div className="edu-card">
+          <div className="edu-card clickable" onClick={handleEducationClick}>
             <div className="edu-year">2023 - Present</div>
             <h3 className="edu-title">Diploma in Information Technology</h3>
             <p className="edu-school">Nanyang Polytechnic (NYP)</p>
@@ -126,15 +133,17 @@ const Home = () => {
               Specializing in Software Development with focus on Full Stack Web Development,
               Database Management, and Cloud Computing.
             </p>
+            <div className="click-indicator">Click for more details →</div>
           </div>
-          <div className="edu-card">
+          <div className="edu-card clickable" onClick={handleEducationClick}>
             <div className="edu-year">2019 - 2022</div>
             <h3 className="edu-title">Secondary Education</h3>
-            <p className="edu-school">Example Secondary School</p>
+            <p className="edu-school">Hougang Secondary School</p>
             <p className="edu-desc">
               Completed O-Level examinations with strong performance in Mathematics,
-              Science, and Computing.
+              Chemistry, and Physics.
             </p>
+            <div className="click-indicator">Click for more details →</div>
           </div>
         </div>
       </section>
@@ -149,27 +158,28 @@ const Home = () => {
           <div className="timeline-item">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <div className="timeline-date">Jun 2024 - Aug 2024</div>
-              <h3 className="timeline-title">Web Development Intern</h3>
-              <p className="timeline-company">Tech Company Pte Ltd</p>
+              <div className="timeline-date">January 2024 - February 2024</div>
+              <h3 className="timeline-title">NTUC Fairprice, Punggol Plaza</h3>
+              <p className="timeline-company">Part-Time - Restock Clerk</p>
               <ul className="timeline-list">
-                <li>Developed responsive web applications using React.js and Node.js</li>
-                <li>Collaborated with senior developers on client projects</li>
-                <li>Implemented RESTful APIs and integrated third-party services</li>
-                <li>Participated in code reviews and agile development practices</li>
+                <li>Restocked an average of 200+ grocery items per shift, monitoring shelf levels and rotating stock to maintain product freshness and availability.</li>
+                <li>Assisted 10–15 customers daily with product location, dietary inquiries, and ingredient recommendations, enhancing their shopping experience.</li>
+                <li>Conducted weekly inventory counts and reconciled stock discrepancies to support accurate stock management and minimize shrinkage.</li>
+                <li>Delivered friendly, efficient service - helping manage checkout queues and resolving customer issues—contributing to a positive store environment and repeat business.</li>
               </ul>
             </div>
           </div>
           <div className="timeline-item">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <div className="timeline-date">Jan 2024 - May 2024</div>
-              <h3 className="timeline-title">Student Project Lead</h3>
-              <p className="timeline-company">NYP School Project</p>
+              <div className="timeline-date">November 2023 - Present</div>
+              <h3 className="timeline-title">Orchid Country Club</h3>
+              <p className="timeline-company">Part-Time - Banquet and Set Up Staff</p>
               <ul className="timeline-list">
-                <li>Led a team of 4 students in developing a mobile application</li>
-                <li>Coordinated project timelines and delegated tasks effectively</li>
-                <li>Presented project outcomes to faculty and industry professionals</li>
+                <li>Coordinate the setup for up to 5 events weekly - arranging tables, chairs, linens, floral displays according to detailed event diagrams.</li>
+                <li>Serve food and beverages to banquet guests (50+ per event), maintaining a polished dining experience and responding promptly to special requests.</li>
+                <li>Collaborate with a team of 6 to execute teardown and room resets within tight timeframes.</li>
+                <li>Uphold Orchid Country Club’s hospitality standards by greeting guests, answering inquiries, and ensuring a warm, professional atmosphere throughout events. </li>
               </ul>
             </div>
           </div>
