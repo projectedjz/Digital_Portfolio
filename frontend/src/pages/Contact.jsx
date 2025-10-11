@@ -27,7 +27,7 @@ const Contact = () => {
               <div>
                 <h3 className="contact-detail-title">Email</h3>
                 <a href="mailto:your.email@example.com" className="contact-detail-value">
-                  your.email@example.com
+                  Ong.Junzhen@yahoo.com
                 </a>
               </div>
             </div>
@@ -37,7 +37,7 @@ const Contact = () => {
               <div>
                 <h3 className="contact-detail-title">Phone</h3>
                 <a href="tel:+6512345678" className="contact-detail-value">
-                  +65 1234 5678
+                  +65 8011 7982
                 </a>
               </div>
             </div>
@@ -46,7 +46,7 @@ const Contact = () => {
               <MapPin className="contact-icon" />
               <div>
                 <h3 className="contact-detail-title">Location</h3>
-                <p className="contact-detail-value">Singapore</p>
+                <p className="contact-detail-value">Ang Mo Kio, Singapore</p>
               </div>
             </div>
           </div>
@@ -54,10 +54,10 @@ const Contact = () => {
           <div className="social-links">
             <h3 className="social-title">Connect with me</h3>
             <div className="social-icons">
-              <a href="#" className="social-link" title="GitHub">
+              <a href="https://github.com/projectedjz" className="social-link" title="GitHub">
                 <Github size={24} />
               </a>
-              <a href="#" className="social-link" title="LinkedIn">
+              <a href="https://www.linkedin.com/in/ong-jun-zhen-1a706233a/" className="social-link" title="LinkedIn">
                 <Linkedin size={24} />
               </a>
             </div>
@@ -71,7 +71,7 @@ const Contact = () => {
           </p>
           <div className="google-form-embed">
             <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfJyC2eJfRu2jedjA39_placeholder/viewform?embedded=true"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdxDtpufyRgfo7CMlM04pMF_zQEp40sWKP0C8PcU63g2hDaYg/viewform?usp=header"
               width="100%"
               height="800"
               frameBorder="0"
@@ -81,10 +81,6 @@ const Contact = () => {
             >
               Loading…
             </iframe>
-            <p className="form-note">
-              📝 <strong>Note:</strong> Replace the iframe src with your actual Google Form embed URL 
-              (you can get this from Google Forms → Send → Embed HTML)
-            </p>
           </div>
         </div>
       </div>

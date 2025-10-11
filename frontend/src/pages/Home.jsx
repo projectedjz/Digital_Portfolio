@@ -30,7 +30,8 @@ const Home = () => {
       'C#',
       'SQL',
       'Express.js',
-      'React.js'
+      'React.js',
+      'Node.js'
     ],
     genericSkills: [
       'Time Management',
