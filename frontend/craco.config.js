@@ -11,15 +11,55 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-    configure: (webpackConfig) => {
+    configure: (webpackConfig, { env }) => {
+      
+      // Completely remove React Refresh for both development and production
+      webpackConfig.plugins = webpackConfig.plugins.filter(plugin => {
+        return !(plugin.constructor.name === 'HotModuleReplacementPlugin' || 
+                plugin.constructor.name === 'ReactRefreshPlugin');
+      });
+      
+      // Remove React Refresh from babel configuration
+      if (webpackConfig.module && webpackConfig.module.rules) {
+        webpackConfig.module.rules.forEach(rule => {
+          if (rule.oneOf) {
+            rule.oneOf.forEach(oneOfRule => {
+              if (oneOfRule.use && Array.isArray(oneOfRule.use)) {
+                oneOfRule.use.forEach(useItem => {
+                  if (useItem.loader && useItem.loader.includes('babel-loader') && useItem.options) {
+                    // Remove react-refresh babel plugin
+                    if (useItem.options.plugins) {
+                      useItem.options.plugins = useItem.options.plugins.filter(plugin => {
+                        if (typeof plugin === 'string') {
+                          return !plugin.includes('react-refresh');
+                        }
+                        if (Array.isArray(plugin)) {
+                          return !plugin[0].includes('react-refresh');
+                        }
+                        return true;
+                      });
+                    }
+                    
+                    // Also check presets for react-refresh
+                    if (useItem.options.presets) {
+                      useItem.options.presets = useItem.options.presets.map(preset => {
+                        if (Array.isArray(preset) && preset[0].includes('react-app')) {
+                          // Disable runtime in react-app preset
+                          return [preset[0], { ...preset[1], runtime: undefined }];
+                        }
+                        return preset;
+                      });
+                    }
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
       
       // Disable hot reload completely if environment variable is set
       if (config.disableHotReload) {
-        // Remove hot reload related plugins
-        webpackConfig.plugins = webpackConfig.plugins.filter(plugin => {
-          return !(plugin.constructor.name === 'HotModuleReplacementPlugin');
-        });
-        
         // Disable watch mode
         webpackConfig.watch = false;
         webpackConfig.watchOptions = {
