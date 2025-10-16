@@ -11,9 +11,9 @@ const CCA = () => {
       period: 'May 2025 - Present',
       description: '...',
       achievements: [
-        'Organized 3 major hackathons with 100+ participants',
-        'Conducted 15+ workshops on web development',
-        'Led a team of 10 developers on club projects',
+        '...',
+        '...',
+        '...',
       ],
       images: [
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Tech+Club+Event+1',
@@ -53,23 +53,6 @@ const CCA = () => {
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Open+House+Event',
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Campus+Tour',
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Student+Mentoring',
-      ],
-    },
-    {
-      id: 4,
-      title: 'Volunteering Activities',
-      role: 'Active Volunteer',
-      period: '2022 - Present',
-      description: 'Engaging in community service and volunteering activities including coding workshops for underprivileged youth, beach cleanups, and elderly care programs. Committed to giving back to the community.',
-      achievements: [
-        'Taught coding to 50+ students from underprivileged backgrounds',
-        'Participated in 10+ community service events',
-        'Contributed 100+ volunteer hours',
-      ],
-      images: [
-        'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Coding+Workshop',
-        'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Community+Service',
-        'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Volunteer+Team',
       ],
     },
   ];

@@ -1,303 +1,192 @@
-import React from 'react';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, Star } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { GraduationCap, BookOpen, Award, Rocket, Code, Target } from 'lucide-react';
 import FloatingParticles from '../components/FloatingParticles';
 import TerminalCursor from '../components/TerminalCursor';
 import './Education.css';
 
 const Education = () => {
-  const educationDetails = [
+  const educationData = [
     {
       id: 1,
-      period: "April 2024 - Present",
-      title: "Diploma in Information Technology",
-      institution: "Nanyang Polytechnic (NYP)",
-      location: "Singapore",
-      description: "Currently pursuing Year 2 of the Diploma program, having completed the Common ICT Programme in Year 1 with strong academic performance.",
+      year: 'April 2025 - Present',
+      title: 'Diploma in Information Technology',
+      institution: 'Nanyang Polytechnic (NYP)',
+      description: 'Specializing in Software Development with focus on Full Stack Web Development, Database Management, and Cloud Computing.',
+      icon: <Code size={32} />,
       achievements: [
-        "Director's List (Year 1 Semester 2) - 3.73 GPA",
-        "Distinction for Software Engineering Module",
-        "School of Information Technology Club - Sub-community for Publicity Department"
+        'Full Stack Web Development',
+        'Software Engineering',
+        'Advanced Programming',
+        'Communication & Personal Branding'
       ],
-      year1Subjects: [
-        "Fundamentals Of Innovation and Enterprise",
-        "Law and Ethics Of IT",
-        "Effective Communication Skills",
-        "Web Development",
-        "Programming Essential",
-        "Computing Mathematics",
-        "Infocom Security",
-        "Principle of UX Design",
-        "Business Statistics",
-        "Digital Business",
-        "Data Analysis and Visualisation",
-        "App Development Project",
-        "Network Technology"
-      ],
-      year2Subjects: [
-        "Software Engineering",
-        "Data Structures and Algorithms",
-        "Full Stack Development Project",
-        "Advanced Programming",
-        "Database Management System",
-        "Communication and Personal Branding"
-      ],
-      academicPerformance: {
-        overallCGPA: "3.55",
-        year1Sem1: "3.28",
-        year1Sem2: "3.73",
-        year2Sem1: "3.64"
-      },
-      activities: [
-        "School of Information Technology Club - Sub-community for Publicity Department"
-      ],
-      expectedGraduation: "2026"
+      position: 'left'
     },
     {
       id: 2,
-      period: "2020 - 2023",
-      title: "GCE 'O' Level Certificate",
-      institution: "Hougang Secondary School",
-      location: "Singapore",
-      description: "Completed secondary education with strong academic performance and active participation in co-curricular activities.",
+      year: 'April 2024 - March 2025',
+      title: 'Common ICT Programme (CIP)',
+      institution: 'Nanyang Polytechnic (NYP)',
+      description: 'Completed foundation year with strong emphasis on programming fundamentals and technical skills.',
+      icon: <Target size={32} />,
       achievements: [
-        "SJPO Individual - Honorable Mention (Singapore Junior Physics Olympiad 2022)",
-        "SJPO Team - Participation (Singapore Junior Physics Olympiad 2022)",
-        "Top 10% in 2022 and 2023 (Academics)",
-        "Top 25% in 2021 (Academics)",
-        "Singapore Math Kangaroo Participation in 2022 and 2023",
-        "American Mathematics Competition 8 Participation",
-        "NYP Computational Thinking Participation Certificate in 2023"
+        'Digital Business',
+        'Principle of UI/UX Design',
+        'App Development',
+        'Web Development'
       ],
-      activities: [
-        "Football (Vice-captain)"
-      ],
-      competitions: [
-        "Singapore Junior Physics Olympiad 2022 - Individual Honorable Mention",
-        "Singapore Junior Physics Olympiad 2022 - Team Participation",
-        "Singapore Math Kangaroo 2022 & 2023",
-        "American Mathematics Competition 8",
-        "NYP Computational Thinking 2023"
-      ]
+      position: 'right'
     },
     {
       id: 3,
-      period: "2014 - 2019",
-      title: "Primary School Leaving Examination (PSLE) Certificate",
-      institution: "Yio Chu Kang Primary School",
-      location: "Singapore",
-      description: "Completed primary education with active leadership in sports and participation in academic competitions.",
+      year: '2020 - 2023',
+      title: 'Secondary Education',
+      institution: 'Hougang Secondary School',
+      description: 'Completed O-Level examinations with strong performance in Mathematics, Physics, and Chemistry.',
+      icon: <BookOpen size={32} />,
       achievements: [
-        "EAGLES Award",
-        "National Mathematical Olympiad of Singapore Participation"
+        'O-Level Examinations',
+        'Strong Mathematics Foundation',
+        'Physics & Chemistry Excellence',
+        'Leadership in Co-Curricular Activities'
       ],
-      activities: [
-        "Football (Captain)"
+      position: 'left'
+    },
+    {
+      id: 4,
+      year: '2014 - 2019',
+      title: 'Primary School',
+      institution: 'Yio Chu Kang Primary School',
+      description: 'Completed PSLE with strong performance in Mathematics and Sciences.',
+      icon: <Rocket size={32} />,
+      achievements: [
+        'Strong Foundation in Mathematics & Sciences',
+        'Leadership in Co-Curricular Activities',
+        'National Math Olympiad',
+        'EAGLES Award for Leadership Potential'
       ],
-      competitions: [
-        "National Mathematical Olympiad of Singapore"
-      ]
+      position: 'right'
+    },
+    {
+      id: 5,
+      year: 'Future Goals',
+      title: 'Career Aspirations',
+      institution: 'Continuing Journey',
+      description: 'Aiming to become a proficient Full Stack Developer and contribute to innovative tech solutions.',
+      icon: <Rocket size={32} />,
+      achievements: [
+        'Master Modern Frameworks',
+        'Build Production Applications',
+        'Contribute to Open Source',
+        'Continuous Learning & Growth'
+      ],
+      position: 'left'
     }
   ];
+
+  const RoadmapItem = ({ item, index }) => {
+    const [ref, inView] = useInView({
+      threshold: 0.3,
+      triggerOnce: false
+    });
+
+    const itemRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+      target: itemRef,
+      offset: ["start end", "end start"]
+    });
+
+    const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+
+    return (
+      <div 
+        ref={itemRef}
+        className={`roadmap-item ${item.position}`}
+      >
+        <motion.div
+          ref={ref}
+          style={{ y, opacity, scale }}
+          className={`roadmap-content ${inView ? 'in-view' : ''}`}
+        >
+          <div className="roadmap-card">
+            <div className="roadmap-icon-wrapper">
+              <div className="roadmap-icon">
+                {item.icon}
+              </div>
+            </div>
+            <div className="roadmap-year">{item.year}</div>
+            <h3 className="roadmap-title">{item.title}</h3>
+            <p className="roadmap-institution">{item.institution}</p>
+            <p className="roadmap-description">{item.description}</p>
+            <div className="roadmap-achievements">
+              <h4 className="achievements-title">Key Highlights:</h4>
+              <ul className="achievements-list">
+                {item.achievements.map((achievement, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    {achievement}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+        <div className="roadmap-connector">
+          <div className="connector-dot"></div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="education-page">
       <FloatingParticles />
       <TerminalCursor />
-      {/* Header Section */}
-      <section className="education-hero">
-        <div className="education-hero-content">
-          <GraduationCap className="hero-icon" />
-          <h1 className="education-main-title">My Educational Journey</h1>
-          <p className="education-subtitle">
-            A comprehensive overview of my academic achievements and learning experiences
+      <div className="education-hero">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="hero-content"
+        >
+          <GraduationCap className="hero-icon" size={64} />
+          <h1 className="hero-title">Education Journey</h1>
+          <p className="hero-subtitle">
+            A roadmap of my academic achievements and learning milestones
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="roadmap-container">
+        <div className="roadmap-line"></div>
+        {educationData.map((item, index) => (
+          <RoadmapItem key={item.id} item={item} index={index} />
+        ))}
+      </div>
+
+      <motion.div
+        className="journey-footer"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false }}
+      >
+        <div className="footer-content">
+          <Award className="footer-icon" size={48} />
+          <h3 className="footer-title">Continuous Learning</h3>
+          <p className="footer-text">
+            Every step in this journey has shaped my passion for technology and innovation.
+            The best is yet to come!
           </p>
         </div>
-      </section>
-
-      {/* Detailed Education Cards */}
-      <section className="education-details">
-        <div className="education-container">
-          {educationDetails.map((edu, index) => (
-            <div key={edu.id} className={`education-detail-card ${index % 2 === 0 ? 'left' : 'right'}`}>
-              <div className="education-timeline-marker">
-                <div className="timeline-dot"></div>
-                {index < educationDetails.length - 1 && <div className="timeline-line"></div>}
-              </div>
-              
-              <div className="education-card-content">
-                {/* Header */}
-                <div className="education-card-header">
-                  <div className="education-period">
-                    <Calendar className="period-icon" />
-                    <span>{edu.period}</span>
-                  </div>
-                  <div className="education-location">
-                    <MapPin className="location-icon" />
-                    <span>{edu.location}</span>
-                  </div>
-                </div>
-
-                {/* Main Info */}
-                <div className="education-main-info">
-                  <h2 className="education-degree">{edu.title}</h2>
-                  <h3 className="education-institution">{edu.institution}</h3>
-                  <p className="education-description">{edu.description}</p>
-                </div>
-
-                {/* Expected Graduation */}
-                {edu.expectedGraduation && (
-                  <div className="graduation-info">
-                    <div className="graduation-item">
-                      <Calendar className="graduation-icon" />
-                      <span>Expected Graduation: {edu.expectedGraduation}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Achievements */}
-                <div className="education-section">
-                  <h4 className="section-title">
-                    <Award className="section-icon" />
-                    Achievements
-                  </h4>
-                  <ul className="achievements-list">
-                    {edu.achievements.map((achievement, idx) => (
-                      <li key={idx} className="achievement-item">{achievement}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Academic Performance (for NYP) */}
-                {edu.academicPerformance && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <Star className="section-icon" />
-                      Academic Performance
-                    </h4>
-                    <div className="performance-grid">
-                      <div className="performance-item-detailed">
-                        <span className="performance-label">Overall CGPA:</span>
-                        <span className="performance-value">{edu.academicPerformance.overallCGPA}</span>
-                      </div>
-                      <div className="performance-item-detailed">
-                        <span className="performance-label">Year 1 Sem 1:</span>
-                        <span className="performance-value">{edu.academicPerformance.year1Sem1}</span>
-                      </div>
-                      <div className="performance-item-detailed">
-                        <span className="performance-label">Year 1 Sem 2:</span>
-                        <span className="performance-value">{edu.academicPerformance.year1Sem2}</span>
-                      </div>
-                      <div className="performance-item-detailed">
-                        <span className="performance-label">Year 2 Sem 1:</span>
-                        <span className="performance-value">{edu.academicPerformance.year2Sem1}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Year 1 Subjects (for NYP) */}
-                {edu.year1Subjects && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <BookOpen className="section-icon" />
-                      Year 1 - Common ICT Programme
-                    </h4>
-                    <div className="subjects-grid">
-                      {edu.year1Subjects.map((subject, idx) => (
-                        <div key={idx} className="subject-tag year1">{subject}</div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Year 2 Subjects (for NYP) */}
-                {edu.year2Subjects && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <BookOpen className="section-icon" />
-                      Year 2 - Diploma in Information Technology
-                    </h4>
-                    <div className="subjects-grid">
-                      {edu.year2Subjects.map((subject, idx) => (
-                        <div key={idx} className="subject-tag year2">{subject}</div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Regular Subjects (for other schools) */}
-                {edu.subjects && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <BookOpen className="section-icon" />
-                      Key Subjects
-                    </h4>
-                    <div className="subjects-grid">
-                      {edu.subjects.map((subject, idx) => (
-                        <div key={idx} className="subject-tag">{subject}</div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Competitions */}
-                {edu.competitions && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <Award className="section-icon" />
-                      Competitions & Certifications
-                    </h4>
-                    <ul className="competitions-list">
-                      {edu.competitions.map((competition, idx) => (
-                        <li key={idx} className="competition-item">{competition}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Activities */}
-                {edu.activities && (
-                  <div className="education-section">
-                    <h4 className="section-title">
-                      <Users className="section-icon" />
-                      Co-Curricular Activities
-                    </h4>
-                    <ul className="activities-list">
-                      {edu.activities.map((activity, idx) => (
-                        <li key={idx} className="activity-item">{activity}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Future Goals Section */}
-      <section className="future-goals">
-        <div className="goals-container">
-          <h2 className="goals-title">Future Educational Goals</h2>
-          <div className="goals-grid">
-            <div className="goal-card">
-              <BookOpen className="goal-icon" />
-              <h3>Continuous Learning</h3>
-              <p>Pursuing additional certifications in cloud computing and cybersecurity</p>
-            </div>
-            <div className="goal-card">
-              <Award className="goal-icon" />
-              <h3>Professional Certifications</h3>
-              <p>Planning to obtain AWS and Azure cloud certifications</p>
-            </div>
-            <div className="goal-card">
-              <Users className="goal-icon" />
-              <h3>Knowledge Sharing</h3>
-              <p>Contributing to open-source projects and tech community</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      </motion.div>
     </div>
   );
 };

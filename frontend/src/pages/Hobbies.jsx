@@ -31,7 +31,7 @@ const Hobbies = () => {
       <div className="hobbies-list">
         {hobbies.map((hobby) => (
           <div key={hobby.id} className="hobby-card">
-            <div className="hobby-video" style={{ width: '550px', aspectRatio: '16/9' }}>
+            <div className="hobby-video" style={{ width: '100%', maxWidth: '550px', aspectRatio: '16/9' }}>
               <iframe
                 width="100%"
                 height="100%"

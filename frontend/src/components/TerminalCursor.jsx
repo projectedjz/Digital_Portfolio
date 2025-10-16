@@ -10,6 +10,16 @@ const codeLines = [
   "export default Excellence;",
   "async function achieve() {}",
   "return <YourDreams />;",
+  "const [ideas, setIdeas] = useState([]);",
+  "useEffect(() => { grow() }, []);",
+  "const skills = ['React', 'Node.js', 'CSS'];",
+  "if (isCreative) { createMagic(); }",
+  "console.log('Hello, future me!');",
+  "const promise = new Promise((resolve) => resolve('success'));",
+  "const user = { name: 'Your Name', passion: 'Code' };",
+  "arr.map(item => <Component key={item.id} />);",
+  "class Developer extends Human {}",
+  "const solution = solveProblem(challenge);",
 ];
 
 const TerminalCursor = () => {
