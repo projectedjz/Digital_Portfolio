@@ -6,45 +6,15 @@ const Hobbies = () => {
   const hobbies = [
     {
       id: 1,
-      title: 'Coding Personal Projects',
-      description: 'I love building side projects in my free time. From web apps to mobile applications, coding is not just my career but also my passion. Each project teaches me something new and keeps me updated with the latest technologies.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Web Development', 'App Development', 'Open Source'],
+      title: 'Basketball',
+      description: `During my free time, when I’m not coding, I dedicate a significant portion of my week to playing basketball with my friends. Every Thursday, Saturday, and Sunday, you’ll find me on the court, enjoying the game and staying active. Even during busy school weeks, I prioritize basketball by carefully planning my schedule to ensure I can make time to hang out and play with my friends.`,
+      videoId: 'OWJ6rGx7f60',
     },
     {
       id: 2,
-      title: 'Gaming & Esports',
-      description: 'Gaming helps me relax and unwind after a long day. I enjoy both competitive and casual games, and I appreciate the strategic thinking and teamwork involved in esports. It also keeps me connected with friends around the world.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Strategy Games', 'Team Play', 'Problem Solving'],
-    },
-    {
-      id: 3,
-      title: 'Photography & Videography',
-      description: 'Capturing moments through the lens is a creative outlet for me. I enjoy experimenting with different angles, lighting, and editing techniques. Photography teaches me to see the world from different perspectives.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Digital Photography', 'Photo Editing', 'Storytelling'],
-    },
-    {
-      id: 4,
-      title: 'Music Production',
-      description: 'Creating and mixing music is a hobby that combines my love for technology and art. I experiment with different software, sound design, and production techniques. Music production allows me to express creativity in unique ways.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Music Composition', 'Sound Design', 'Audio Engineering'],
-    },
-    {
-      id: 5,
-      title: 'Fitness & Sports',
-      description: 'Staying active and healthy is important to me. Whether it\'s hitting the gym, playing sports, or outdoor activities, physical fitness helps me maintain energy and focus. It\'s also a great way to challenge myself and set personal goals.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Gym Training', 'Team Sports', 'Outdoor Activities'],
-    },
-    {
-      id: 6,
-      title: 'Reading Tech Blogs & Learning',
-      description: 'I enjoy staying updated with the latest trends in technology. Reading tech blogs, watching tutorials, and taking online courses helps me continuously improve my skills and discover new tools and frameworks.',
-      videoId: 'dQw4w9WgXcQ',
-      tags: ['Continuous Learning', 'Tech News', 'Skill Development'],
+      title: 'Basketball',
+      description: `While I may be smaller in stature compared to my friends (who are usually a head taller than me), I’ve learned to make the most of my size by focusing on my agility and quickness. On offense, I use my speed to make sharp cuts, drive to the basket, and find creative ways to finish around taller defenders. On defense, I rely on my agility to stay in front of my opponents, anticipate their moves, and use my smaller frame to my advantage for stealing the ball or making quick recoveries. The game pushes me to think fast and stay one step ahead, and I love the challenge that comes with playing against people who have a physical advantage.`,
+      videoId: 'KPgoSU7bfbk',
     },
   ];
 
@@ -61,7 +31,7 @@ const Hobbies = () => {
       <div className="hobbies-list">
         {hobbies.map((hobby) => (
           <div key={hobby.id} className="hobby-card">
-            <div className="hobby-video">
+            <div className="hobby-video" style={{ width: '550px', aspectRatio: '16/9' }}>
               <iframe
                 width="100%"
                 height="100%"
@@ -71,18 +41,10 @@ const Hobbies = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-              <div className="video-overlay">
-                <Play className="play-icon" />
-              </div>
             </div>
             <div className="hobby-content">
               <h2 className="hobby-title">{hobby.title}</h2>
               <p className="hobby-description">{hobby.description}</p>
-              <div className="hobby-tags">
-                {hobby.tags.map((tag, index) => (
-                  <span key={index} className="hobby-tag">{tag}</span>
-                ))}
-              </div>
             </div>
           </div>
         ))}

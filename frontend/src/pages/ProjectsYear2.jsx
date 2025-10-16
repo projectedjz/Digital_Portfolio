@@ -64,7 +64,7 @@ const ProjectsYear2 = () => {
       This project culminated in a live client presentation, where we showcased the platform’s capabilities. The client was highly impressed with our solution and its potential to significantly improve operational efficiency.
 
       This project not only strengthened my technical skills in full-stack development, database integration, and cloud deployment, but also gave me hands-on experience in applying digital solutions to a real-world business case through direct client engagement.`,
-      videoId: 'dQw4w9WgXcQ',
+      videoId: '#',
       grade: 'Grade: A (School Project)',
       technologies: ['React', 'Node.js', 'Express.js', 'React.js', 'MySQL', 'AWS SageMaker', 'Figma', 'AWS RDS', 'Github'],
       githubLink: '#',

@@ -6,10 +6,10 @@ const CCA = () => {
   const ccaActivities = [
     {
       id: 1,
-      title: 'Tech Club - Vice President',
-      role: 'Vice President & Lead Developer',
-      period: '2023 - Present',
-      description: 'Leading the tech club with over 50 members, organizing workshops, hackathons, and tech talks. Responsible for coordinating events, managing projects, and mentoring junior members in web development and programming.',
+      title: 'SIT Club - Subcommittee',
+      role: 'Subcommittee Member',
+      period: 'May 2025 - Present',
+      description: '...',
       achievements: [
         'Organized 3 major hackathons with 100+ participants',
         'Conducted 15+ workshops on web development',
@@ -23,14 +23,14 @@ const CCA = () => {
     },
     {
       id: 2,
-      title: 'Hackathon Participant',
-      role: 'Team Lead & Developer',
-      period: '2022 - Present',
-      description: 'Actively participating in various hackathons including NYP Hackathon, Google Solution Challenge, and other tech competitions. Leading teams to develop innovative solutions under time constraints.',
+      title: 'Football CCA - Secondary School',
+      role: 'Team Vice-Captain',
+      period: '2020 - 2023',
+      description: '...',
       achievements: [
-        'Winner - NYP Innovation Challenge 2024',
-        'Top 10 Finalist - Singapore Polytechnic Hackathon',
-        'Participant in 8+ hackathons',
+        'League 2 2023',
+        '...',
+        '...',
       ],
       images: [
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Hackathon+Winner',
@@ -40,14 +40,14 @@ const CCA = () => {
     },
     {
       id: 3,
-      title: 'Student Ambassador',
-      role: 'Campus Representative',
+      title: 'Football CCA - Primary School',
+      role: 'Team Captain',
       period: '2023 - Present',
-      description: 'Representing NYP at various events, open houses, and recruitment activities. Engaging with prospective students, conducting campus tours, and sharing experiences about student life and academic programs.',
+      description: '...',
       achievements: [
-        'Conducted 20+ campus tours for prospective students',
-        'Participated in 5 major open house events',
-        'Mentored 15+ freshmen students',
+        'EAGLES Award 2019',
+        'Participated in 2 major open house events',
+        'Met Fandi Ahmad during Milo Camp Event',
       ],
       images: [
         'https://via.placeholder.com/400x300/1a1a1a/39ff14?text=Open+House+Event',
