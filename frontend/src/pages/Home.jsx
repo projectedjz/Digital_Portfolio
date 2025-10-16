@@ -127,7 +127,7 @@ const Home = () => {
         </div>
         <div className="education-cards">
           <div className="edu-card clickable" onClick={handleEducationClick}>
-            <div className="edu-year">2023 - Present</div>
+            <div className="edu-year">2024 - Present</div>
             <h3 className="edu-title">Diploma in Information Technology</h3>
             <p className="edu-school">Nanyang Polytechnic (NYP)</p>
             <p className="edu-desc">
@@ -137,7 +137,7 @@ const Home = () => {
             <div className="click-indicator">Click for more details →</div>
           </div>
           <div className="edu-card clickable" onClick={handleEducationClick}>
-            <div className="edu-year">2019 - 2022</div>
+            <div className="edu-year">2020 - 2023</div>
             <h3 className="edu-title">Secondary Education</h3>
             <p className="edu-school">Hougang Secondary School</p>
             <p className="edu-desc">
