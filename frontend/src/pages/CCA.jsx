@@ -9,7 +9,7 @@ const CCA = () => {
       title: 'SIT Club - Subcommittee',
       role: 'Subcommittee Member',
       period: 'May 2025 - Present',
-      description: '???',
+      description: `In my role with the School of Information Technology's subcommittee, I earned my position by completing key leadership programs, including Camp Nautilus and Social Cohesion Training. My participation in the Freshmen Orientation training also allowed me to cultivate strong mentorship and interpersonal skills essential for student engagement. I am now poised to support the committee’s outreach and publicity initiatives by applying these communication and teamwork skills to promote school events and build a vibrant community.`,
       achievements: [
         'Social Cohesion Training 2025',
         'Camp Nauttilus 2025',

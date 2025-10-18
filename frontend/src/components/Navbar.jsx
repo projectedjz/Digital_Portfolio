@@ -83,7 +83,7 @@ const Navbar = () => {
                   className="dropdown-link"
                   onClick={() => setIsOpen(false)}
                 >
-                  Hobbies & Interests
+                  Hobbies
                 </Link>
               </li>
               <li>

@@ -1,0 +1,16 @@
+.code-trail-element {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  font-family: 'Fira Code', 'Source Code Pro', Consolas, Monaco, monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.code-trail-element.fading {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}

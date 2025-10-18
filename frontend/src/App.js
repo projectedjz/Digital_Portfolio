@@ -13,6 +13,7 @@ import Hobbies from "./pages/Hobbies";
 import CCA from "./pages/CCA";
 import Certificates from "./pages/Certificates";
 import Contact from "./pages/Contact";
+import CodeTrailCursor from './components/CodeTrailCursor';
 
 const AppContent = () => {
   const [loading, setLoading] = useState(false);
@@ -36,6 +37,7 @@ const AppContent = () => {
       {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
       <FloatingParticles />
       <TerminalCursor />
+      <CodeTrailCursor />
       <Navbar />
       <div className="main-content">
         <Routes>
