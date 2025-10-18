@@ -97,7 +97,7 @@ const Home = () => {
           <div className="about-image-wrapper">
             <div className="profile-image-container">
               <img 
-                src="https://via.placeholder.com/300/1a1a1a/39ff14?text=Your+Photo" 
+                src="/Profile/pfp.png" 
                 alt="Profile" 
                 className="profile-image"
               />

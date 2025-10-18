@@ -11,7 +11,7 @@ const Certificates = () => {
       issuer: 'Director of School Of Information Techology',
       date: 'May 2025',
       description: 'Outstanding Academic Performance in Year 1 Semester 2',
-      link: 'director_2024-2025.jpg',
+      link: '/certificates/director_2024-2025.jpg',
     },
   ];
 
