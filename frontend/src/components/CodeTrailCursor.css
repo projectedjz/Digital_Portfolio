@@ -14,3 +14,9 @@
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
 }
+
+@media (max-width: 1023px) {
+  .code-trail-element {
+    display: none !important;
+  }
+}

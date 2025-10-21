@@ -66,7 +66,7 @@ const ProjectsYear2 = () => {
       This project not only strengthened my technical skills in full-stack development, database integration, and cloud deployment, but also gave me hands-on experience in applying digital solutions to a real-world business case through direct client engagement.`,
       videoId: '#',
       grade: 'Grade: A (School Project)',
-      technologies: ['React', 'Node.js', 'Express.js', 'React.js', 'MySQL', 'AWS SageMaker', 'Figma', 'AWS RDS', 'Github'],
+      technologies: ['Node.js', 'Express.js', 'React.js', 'MySQL', 'AWS SageMaker', 'Figma', 'AWS RDS', 'Github'],
       githubLink: '#',
     },
   ];
